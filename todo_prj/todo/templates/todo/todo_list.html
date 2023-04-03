@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To Do List Project</title>
+    <link rel="stylesheet" href="{% static 'todo/style.css' %}">
+</head>
+<body>
+
+    {% block content %}
+        <h1>To Do List</h1>
+        <ul>
+            {% for todo in todos %}
+                <li class="{% if todo.completed %}completed{% endif %}">
+                    {{ todo.title }} - {{ todo.description }}
+                    <form method="POST" style="display: inline-block;">
+                        {% csrf_token %}
+                        <input type="hidden" name="completed_id" value="{{ todo.id }}">
+                        <button type="submit">Complete</button>
+                    </form>
+                    <form method="post" style="display: inline-block;">
+                        {% csrf_token %}
+                        <input type="hidden" name="delete_id" value="{{ todo.id }}">
+                        <button type="submit">Delete</button>
+                    </form>
+                </li>
+            {% empty %}
+                <li>No items found!</li>
+            {% endfor %}
+        </ul>
+
+        <h2>Add new To Do Item</h2>
+        <form method="post">
+            {% csrf_token %}
+            {{ form.as_p }}
+            <button type="submit">Add To Do Item</button>
+        </form>
+    {% endblock %}
+</body>
+</html>
