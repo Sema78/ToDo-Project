@@ -1,5 +1,6 @@
 * {
-    font-family: 'Roboto' sans-serif;
+    font-family: "Roboto";
+    background-color: #ebeced;
     padding: 0;
     margin: 0;
 }
@@ -10,4 +11,50 @@ li {
 li.completed {
     color: red;
     text-decoration: line-through;
+}
+
+.header {
+    font-size: 24px;
+    font-weight: 900;
+    display: flex;
+    justify-content: center;
+}
+
+button {
+    padding: 3px;
+}
+
+.todo_list {
+    font-size: 16px;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+}
+
+.add_todo_block {
+    font-size: 16px;
+    border: 3px solid green;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 10px;
+    
+}
+
+.atb_header {
+    display: flex;
+    /* justify-content: center; */
+}
+
+.atb_form {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    /* justify-content: center; */
+}
+
+.atb_button {
+    display: flex;
+    /* justify-content: center; */
 }

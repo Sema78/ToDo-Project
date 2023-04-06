@@ -24,4 +24,5 @@ def todo_list(request):
         completed_todo = ToDoItem.objects.get(pk=request.POST['completed_id'])
         completed_todo.completed = True
         completed_todo.save()
+        return redirect('todo_list')
     return render(request, 'todo/todo_list.html', context)
